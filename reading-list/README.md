@@ -7,4 +7,4 @@
 1. 大型网站技术架构 核心原理与案例分析(2016年10月)
 1. 浪潮之巅（第二版上下册）2016年11月
 1. 大型网站系统与Java中间件实践 2016年12月
-1. Spring揭秘 2017.01[笔记](/reading-list/reading-notes/Spring%E6%8F%AD%E7%A7%98.md)
+1. Spring揭秘 2017.01[笔记](/reading-list/reading-notes/Spring-Secret.md)
