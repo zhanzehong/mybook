@@ -1,4 +1,4 @@
-# 路线七：框架-Spring
+# 框架-Spring
 ## 一、Part1:掀起Spring的盖头来
 ### 第1章、Spring框架的由来
 #### 1.2 Spring 框架概述
