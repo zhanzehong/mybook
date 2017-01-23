@@ -2,8 +2,7 @@
 ## 一、Part1:掀起Spring的盖头来
 ### 第1章、Spring框架的由来
 #### 1.2 Spring 框架概述
- ![](media/14835192922448/14844584139244.jpg)￼
-
+ 
 组成整个Spring框架的各种服务实现被划分到了多个相互独立却又相互依赖的模块当中。正如我 们在图1-1中所见到的那样,这些模块组成了Spring生命之树的枝和干,说白了也就是它们组成了Spring 框架的核心骨架。抓住了这副骨架,也就抓住了Spring框架的学习主线。    整个Spring框架构建在Core核心模块之上,它是整个框架的基础。在该模块中,Spring为我们提供了一个IoC容器(IoC Container)实现,**用于帮助我们以依赖注入的方式管理对象之间的依赖关系**。对 Spring的IoC容器的介绍将成为我们此次Spring之旅的第一站。除此之外,Core核心模块中还包括框架 内部使用的各种工具类(如果愿意,我们也可以在框架之外使用),比如Spring的基础IO工具类等, 这些基础工具类我们也会在合适的地方介绍。
     
 沿着Spring生命之树往上左序遍历,我们将来到AOP模块。该模块提供了一个轻便但功能强大的AOP框架,让我们可以以AOP的形式增强各POJO的能力,进而补足OOP/OOSD之缺憾。Spring的AOP框架符合AOP Alliance规范,采用Proxy模式构建,与IoC容器相结合,可以充分显示出Spring AOP的强大威力。我们将在了解了Spring的IoC容器的基础上,详细讲述Spring AOP这一部分。    
@@ -76,9 +75,13 @@ setter方法注入。因为方法可以命名,所以setter方法注入在描述�
 
 ### 第4章 Spring的IoC容器之BeanFactory
 Spring的IoC容器是一个IoC Service Provider,但是,这只是它被冠以IoC之名的部 分原因,我们不能忽略的是“容器”。Spring的IoC容器是一个提供IoC支持的轻量级容器,除了基本 的IoC支持,它作为轻量级容器还提供了IoC之外的支持。如在Spring的IoC容器之上,Spring还提供了 相应的AOP框架支持、企业级服务集成等服务。Spring的IoC容器和IoC Service Provider所提供的服务 之间存在一定的交集,二者的关系如图4-1所示。
+
 ![](media/14835192922448/14844687455643.jpg)￼
+
 Spring提供了两种容器类型:BeanFactory和ApplicationContext。
+
 **BeanFactory**。基础类型IoC容器,提供完整的IoC服务支持。如果没有特殊指定,默认采用延迟初始化策略(lazy-load)。只有当客户第端对象需要访问的容器中的某个受管对象的时候,才对该受管对象进行初始化以及依赖注入操作
+
 **ApplicationContext**。ApplicationContext在BeanFactory的基础上构建,是相对比较高 级的容器实现,除了拥有BeanFactory的所有支持,ApplicationContext还提供了其他高级特性。ApplicationContext所管理 的对象,在该类型容器启动之后,默认全部初始化并绑定完成。
 
 #### 4.3.5 bean 的 scope
