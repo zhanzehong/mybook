@@ -10,9 +10,7 @@
 6. 大型网站系统与Java中间件实践 2016年12月
 7. Spring揭秘 2017.01[笔记](/reading-list/reading-notes/Spring-Secret.md)
 8. Java并发编程的艺术 2017年3月
-
-
-
+9. 
 ## **其他**
 
 1. 从0到1 2017年3月
