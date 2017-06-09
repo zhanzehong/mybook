@@ -1,23 +1,32 @@
-# 框架-Spring
+# 读书笔记--Spring揭秘
 ## 一、Part1:掀起Spring的盖头来
 ### 第1章、Spring框架的由来
 #### 1.2 Spring 框架概述
  
-组成整个Spring框架的各种服务实现被划分到了多个相互独立却又相互依赖的模块当中。正如我 们在图1-1中所见到的那样,这些模块组成了Spring生命之树的枝和干,说白了也就是它们组成了Spring 框架的核心骨架。抓住了这副骨架,也就抓住了Spring框架的学习主线。    整个Spring框架构建在Core核心模块之上,它是整个框架的基础。在该模块中,Spring为我们提供了一个IoC容器(IoC Container)实现,**用于帮助我们以依赖注入的方式管理对象之间的依赖关系**。对 Spring的IoC容器的介绍将成为我们此次Spring之旅的第一站。除此之外,Core核心模块中还包括框架 内部使用的各种工具类(如果愿意,我们也可以在框架之外使用),比如Spring的基础IO工具类等, 这些基础工具类我们也会在合适的地方介绍。
+组成整个Spring框架的各种服务实现被划分到了多个相互独立却又相互依赖的模块当中。正如我 们在图1-1中所见到的那样,这些模块组成了Spring生命之树的枝和干,说白了也就是它们组成了Spring 框架的核心骨架。抓住了这副骨架,也就抓住了Spring框架的学习主线。
+    整个Spring框架构建在Core核心模块之上,它是整个框架的基础。在该模块中,Spring为我们提供了一个IoC容器(IoC Container)实现,**用于帮助我们以依赖注入的方式管理对象之间的依赖关系**。对 Spring的IoC容器的介绍将成为我们此次Spring之旅的第一站。除此之外,Core核心模块中还包括框架 内部使用的各种工具类(如果愿意,我们也可以在框架之外使用),比如Spring的基础IO工具类等, 这些基础工具类我们也会在合适的地方介绍。
     
-沿着Spring生命之树往上左序遍历,我们将来到AOP模块。该模块提供了一个轻便但功能强大的AOP框架,让我们可以以AOP的形式增强各POJO的能力,进而补足OOP/OOSD之缺憾。Spring的AOP框架符合AOP Alliance规范,采用Proxy模式构建,与IoC容器相结合,可以充分显示出Spring AOP的强大威力。我们将在了解了Spring的IoC容器的基础上,详细讲述Spring AOP这一部分。    
+沿着Spring生命之树往上左序遍历,我们将来到AOP模块。该模块提供了一个轻便但功能强大的AOP框架,让我们可以以AOP的形式增强各POJO的能力,进而补足OOP/OOSD之缺憾。Spring的AOP框架符合AOP Alliance规范,采用Proxy模式构建,与IoC容器相结合,可以充分显示出Spring AOP的强大威力。我们将在了解了Spring的IoC容器的基础上,详细讲述Spring AOP这一部分。
+    
 
-继续上行,Spring框架在Core核心模块和AOP模块的基础上,为我们提供了完备的数据访问和事务管理的抽象和集成服务。在数据访问支持方面,Spring对JDBC API的最佳实践极大地简化了该API的使用。除此之外,Spring框架为各种当前业界流行的ORM产品,比如Hibernate、iBATIS、Toplink、 JPA等提供了形式统一的集成支持。**Spring框架中的事务管理抽象层是Spring AOP的最佳实践,它直接 构建在Spring AOP的基础之上,为我们提供了编程式事务管理和声明式事务管理的完备支持**。这些服务极大地简化了日常应用开发过程中的数据访问和事务管理工作。在学习完这两部分内容之后,相信读者将会有切身的体会。    
+继续上行,Spring框架在Core核心模块和AOP模块的基础上,为我们提供了完备的数据访问和事务管理的抽象和集成服务。在数据访问支持方面,Spring对JDBC API的最佳实践极大地简化了该API的使用。除此之外,Spring框架为各种当前业界流行的ORM产品,比如Hibernate、iBATIS、Toplink、 JPA等提供了形式统一的集成支持。**Spring框架中的事务管理抽象层是Spring AOP的最佳实践,它直接 构建在Spring AOP的基础之上,为我们提供了编程式事务管理和声明式事务管理的完备支持**。这些服务极大地简化了日常应用开发过程中的数据访问和事务管理工作。在学习完这两部分内容之后,相信读者将会有切身的体会。
+    
 
-为了简化各种Java EE服务(像JNDI、JMS以及JavaMail等)的使用,Spring框架为我们提供了针对这些Java EE服务的集成服务。在Spring的帮助下,这些Java EE服务现在都变得不再烦琐难用。因为相关的Java EE服务较多,我们将会选择合适的几种介绍Spring框架给予它们的支持。随着航空航天技术的发展,我们现在可以从地球上发送飞船去访问其他星球,使用Spring框架构建的基于POJO的应用 程序如果也需要远程访问或者公开一些服务的话,Spring的Remoting框架将帮助它完成这一使命。 Spring的Remoting框架和Spring对其他Java EE服务的集成将分别在不同的章节中介绍。    最后要提到的就是Web模块。在该模块中,Spring框架提供了一套自己的Web MVC框架,职责分 明的角色划分让这套框架看起来十分地“醒目”。我们将为Spring的Web MVC框架单独开辟一块“领地”进行讲解。在那一部分中,读者可以充分领略Web MVC框架的魅力。Spring的Portlet MVC构建在 Spring Web MVC之上,延续了Spring Web MVC的一贯风格。本书不会对其做详细介绍,如果需要, 可以参考文献中的有关参考书籍。Spring Web MVC并不排斥现有的其他Web框架,像Struts、WebWork 以及JSF等;Spring的Web框架都为它们提供了集成支持。除此之外,像Web开发中可能牵扯的各种视 图(View)技术,Spring Web框架更是给予了足够的重视。    
+为了简化各种Java EE服务(像JNDI、JMS以及JavaMail等)的使用,Spring框架为我们提供了针对这些Java EE服务的集成服务。在Spring的帮助下,这些Java EE服务现在都变得不再烦琐难用。因为相关的Java EE服务较多,我们将会选择合适的几种介绍Spring框架给予它们的支持。随着航空航天技术的发展,我们现在可以从地球上发送飞船去访问其他星球,使用Spring框架构建的基于POJO的应用 程序如果也需要远程访问或者公开一些服务的话,Spring的Remoting框架将帮助它完成这一使命。 Spring的Remoting框架和Spring对其他Java EE服务的集成将分别在不同的章节中介绍。
+    最后要提到的就是Web模块。在该模块中,Spring框架提供了一套自己的Web MVC框架,职责分 明的角色划分让这套框架看起来十分地“醒目”。我们将为Spring的Web MVC框架单独开辟一块“领地”进行讲解。在那一部分中,读者可以充分领略Web MVC框架的魅力。Spring的Portlet MVC构建在 Spring Web MVC之上,延续了Spring Web MVC的一贯风格。本书不会对其做详细介绍,如果需要, 可以参考文献中的有关参考书籍。Spring Web MVC并不排斥现有的其他Web框架,像Struts、WebWork 以及JSF等;Spring的Web框架都为它们提供了集成支持。除此之外,像Web开发中可能牵扯的各种视 图(View)技术,Spring Web框架更是给予了足够的重视。
+    
 
-就像一棵树必须依赖强大的根基才能生长繁盛一样,Spring框架内的各个模块也是如此。理论上 来说,上层的模块需要依赖下层的模块才能正常工作,这就是为什么说这些模块是相互依赖的。不过, 近乎处于同一水平线的各个模块之间却可以认为是相互独立的,彼此之间没什么瓜葛。从这个角度看, 这些模块之间的相互独立一说也是成立的。    
+就像一棵树必须依赖强大的根基才能生长繁盛一样,Spring框架内的各个模块也是如此。理论上 来说,上层的模块需要依赖下层的模块才能正常工作,这就是为什么说这些模块是相互依赖的。不过, 近乎处于同一水平线的各个模块之间却可以认为是相互独立的,彼此之间没什么瓜葛。从这个角度看, 这些模块之间的相互独立一说也是成立的。
+
+    
 
 * 注意 
 
 不要只将Spring看作是一个IoC容器,也不要只将Spring与AOP挂钩,Spring提供的远比 这些东西要多得多。Spring不仅仅是一个简化Java EE开发的轻量级框架,它更应该是一个简化 任何Java应用的开发框架。如果你愿意,甚至可以在Java的三个平台上(J2SE、J2EE、J2ME) 应用Spring框架。即使当前的Spring框架还不支持相应平台或者相应场景的应用开发,但是只 要你掌握了Spring的理念和方法,同样可以让新的“Spring”在相应的场景中发挥作用。
 
-#### 1.4小结   
+
+#### 1.4小结
+   
 本章首先对Spring框架得以迅速崛起的背景做了简短介绍,然后带领读者从总体上了解了Spring 框架的构成。按常规思路,在了解了Spring框架的总体结构之后,就应该深入框架内部以进一步了解 13 它的详细内容。但是,为了让大家对Spring框架以及构建在该框架基础之上的整个平台有所认识,本 章最后加入了对整个Spring开发平台的总体介绍。
 
 ## 二、Part2：Spring的IoC容器
@@ -50,11 +59,14 @@ IoC Service Provider会检查被注入对象的构造方法,取得它所需要�
 **接口注入**
 被注入对象如果想要IoC Service Provider为其注入依赖对象,就必须实现某个接口。这个接口提供一个方法,用来为其注入依赖对象。 IoC Service Provider最终通过这些接口来了解应该为被注入对象注入什么依赖对象。
 
-**三种注入方式的比较**    
+**三种注入方式的比较
+**    
 
-接口注入。从注入方式的使用上来说,接口注入是现在不甚提倡的一种方式,基本处于“退 役状态”。因为它强制被注入对象实现不必要的接口,带有侵入性。而构造方法注入和setter 方法注入则不需要如此。    
+接口注入。从注入方式的使用上来说,接口注入是现在不甚提倡的一种方式,基本处于“退 役状态”。因为它强制被注入对象实现不必要的接口,带有侵入性。而构造方法注入和setter 方法注入则不需要如此。
+    
 
-构造方法注入。这种注入方式的优点就是,对象在构造完成之后,即已进入就绪状态,可以 马上使用。缺点就是,当依赖对象比较多的时候,构造方法的参数列表会比较长。而通过反 射构造对象的时候,对相同类型的参数的处理会比较困难,维护和使用上也比较麻烦。而且 在Java中,构造方法无法被继承,无法设置默认值。对于非必须的依赖处理,可能需要引入多 个构造方法,而参数数量的变动可能造成维护上的不便。    
+构造方法注入。这种注入方式的优点就是,对象在构造完成之后,即已进入就绪状态,可以 马上使用。缺点就是,当依赖对象比较多的时候,构造方法的参数列表会比较长。而通过反 射构造对象的时候,对相同类型的参数的处理会比较困难,维护和使用上也比较麻烦。而且 在Java中,构造方法无法被继承,无法设置默认值。对于非必须的依赖处理,可能需要引入多 个构造方法,而参数数量的变动可能造成维护上的不便。
+    
 
 setter方法注入。因为方法可以命名,所以setter方法注入在描述性上要比构造方法注入好一些。另外,setter方法可以被继承,允许设置默认值,而且有良好的IDE支持。缺点当然就是对象无法在构造完成后马上进入就绪状态。 综上所述,构造方法注入和setter方法注入因为其侵入性较弱,且易于理解和使用,所以是现在使用最多的注入方式;而接口注入因为侵入性较强,近年来已经不流行了。
 
@@ -62,16 +74,21 @@ setter方法注入。因为方法可以命名,所以setter方法注入在描述�
 如果要用一句话来概括IoC可以带给我们什么,那么我希望是,**IoC是一种可以帮助我们解耦各业务对象间依赖关系的对象绑定方式**
 
 #### 2.4 小结
-本章主要介绍了IoC或者说依赖注入的概念,讨论了几种基本的依赖注入方式。还与大家一起探 索并验证了IoC所带给我们的部分“附加值”。所以,现在大家应该对IoC或者说依赖注入有了最基本 认识。下一章,我们将一起去更深入地了解IoC场景中的重要角色,即IoC Service Provider。
+
+本章主要介绍了IoC或者说依赖注入的概念,讨论了几种基本的依赖注入方式。还与大家一起探 索并验证了IoC所带给我们的部分“附加值”。所以,现在大家应该对IoC或者说依赖注入有了最基本 认识。下一章,我们将一起去更深入地了解IoC场景中的重要角色,即IoC Service Provider。
 
 ### 第3章 掌管大局的IoC Service Provider
 #### 3.1 IoC Service Provider 的职责
 
-IoC Service Provider的职责相对来说比较简单,主要有两个:业务对象的构建管理和业务对象间 的依赖绑定。 业务对象的构建管理。在IoC场景中,业务对象无需关心所依赖的对象如何构建如何取得,但 这部分工作始终需要有人来做。所以,IoC Service Provider需要将对象的构建逻辑从客户端对 象1那里剥离出来,以免这部分逻辑污染业务对象的实现。 业务对象间的依赖绑定。对于IoC Service Provider来说,这个职责是最艰巨也是最重要的,这 是它的最终使命之所在。如果不能完成这个职责,那么,无论业务对象如何的“呼喊”,也不 会得到依赖对象的任何响应(最常见的倒是会收到一个NullPointerException)。IoC Service Provider通过结合之前构建和管理的所有业务对象,以及各个业务对象间可以识别的依赖关系,将这些对象所依赖的对象注入绑定,从而保证每个业务对象在使用的时候,可以处于就绪状态。
+
+IoC Service Provider的职责相对来说比较简单,主要有两个:业务对象的构建管理和业务对象间 的依赖绑定。
+ 业务对象的构建管理。在IoC场景中,业务对象无需关心所依赖的对象如何构建如何取得,但 这部分工作始终需要有人来做。所以,IoC Service Provider需要将对象的构建逻辑从客户端对 象1那里剥离出来,以免这部分逻辑污染业务对象的实现。
+ 业务对象间的依赖绑定。对于IoC Service Provider来说,这个职责是最艰巨也是最重要的,这 是它的最终使命之所在。如果不能完成这个职责,那么,无论业务对象如何的“呼喊”,也不 会得到依赖对象的任何响应(最常见的倒是会收到一个NullPointerException)。IoC Service Provider通过结合之前构建和管理的所有业务对象,以及各个业务对象间可以识别的依赖关系,将这些对象所依赖的对象注入绑定,从而保证每个业务对象在使用的时候,可以处于就绪状态。
 
 #### 3.3 小结
 
-本章就IoC场景中的主要角色IoC Service Provider给出了言简意赅的介绍。讨论了IoC Service Provider的基本职责,以及它常用的几种依赖关系管理方式。应该说,IoC Service Provider只是为了简化概念而提出的一个一般性的概念。下一章,我们将由 一般到特殊,一起深入了解一个特定的IoC Service Provider实现产品,即Spring提供的IoC容器。
+本章就IoC场景中的主要角色IoC Service Provider给出了言简意赅的介绍。讨论了IoC Service Provider的基本职责,以及它常用的几种依赖关系管理方式。
+应该说,IoC Service Provider只是为了简化概念而提出的一个一般性的概念。下一章,我们将由 一般到特殊,一起深入了解一个特定的IoC Service Provider实现产品,即Spring提供的IoC容器。
 
 ### 第4章 Spring的IoC容器之BeanFactory
 Spring的IoC容器是一个IoC Service Provider,但是,这只是它被冠以IoC之名的部 分原因,我们不能忽略的是“容器”。Spring的IoC容器是一个提供IoC支持的轻量级容器,除了基本 的IoC支持,它作为轻量级容器还提供了IoC之外的支持。如在Spring的IoC容器之上,Spring还提供了 相应的AOP框架支持、企业级服务集成等服务。Spring的IoC容器和IoC Service Provider所提供的服务 之间存在一定的交集,二者的关系如图4-1所示。
@@ -80,7 +97,8 @@ Spring的IoC容器是一个IoC Service Provider,但是,这只是它被冠以IoC�
 
 Spring提供了两种容器类型:BeanFactory和ApplicationContext。
 
-**BeanFactory**。基础类型IoC容器,提供完整的IoC服务支持。如果没有特殊指定,默认采用延迟初始化策略(lazy-load)。只有当客户第端对象需要访问的容器中的某个受管对象的时候,才对该受管对象进行初始化以及依赖注入操作
+**BeanFactory**。基础类型IoC容器,提供完整的IoC服务支持。如果没有特殊指定,默认采用延
+迟初始化策略(lazy-load)。只有当客户第端对象需要访问的容器中的某个受管对象的时候,才对该受管对象进行初始化以及依赖注入操作
 
 **ApplicationContext**。ApplicationContext在BeanFactory的基础上构建,是相对比较高 级的容器实现,除了拥有BeanFactory的所有支持,ApplicationContext还提供了其他高级特性。ApplicationContext所管理 的对象,在该类型容器启动之后,默认全部初始化并绑定完成。
 
@@ -102,22 +120,26 @@ Spring的IoC容器实现以上功能的过程,基本上可以按照类似的流�
 容器启动阶段--重点更加侧重于对象管理信息的收集。
 Bean实例化阶段--使用装配好的生产线来生产具体的产品
 
-##### 4.4.2 插手“容器的启动”（容器启动阶段）Spring提供了一种叫做BeanFactoryPostProcessor的容器扩展机制。该机制允许我们在容器实 例化相应对象之前,对注册到容器的BeanDefinition所保存的信息做相应的修改。
+##### 4.4.2 插手“容器的启动”（容器启动阶段）
+Spring提供了一种叫做BeanFactoryPostProcessor的容器扩展机制。该机制允许我们在容器实 例化相应对象之前,对注册到容器的BeanDefinition所保存的信息做相应的修改。
 实现org.springframework. beans.factory.config.BeanFactoryPostProcessor接口，Spring提供的这几个BeanFactoryPostProcessor实现都可以完成什么功能。
 
 * PropertyPlaceholderConfigurer
 允许我们在XML配置文件中使用占位符(PlaceHolder), 并将这些占位符所代表的资源单独配置到简单的properties文件中来加载。以数据源的配置为例,使用 了PropertyPlaceholderConfigurer之后(这里沿用代码清单4-42的配置内容),可以在XML配 置文件中按照代码清单4-43所示的方式配置数据源,而不用将连接地址、用户名和密码等都配置到 XML中
 
 * PropertyOverrideConfigurer
-可以通过PropertyOverrideConfigurer对容器中配置的任何你想处理的bean定义的property信息进行覆盖替换
+可以通过PropertyOverrideConfigurer对容器中配置的任何你想处理的bean定义的property信
+息进行覆盖替换
 
 * CustomEditorConfigurer
-CustomEditorConfigurer是另一种类型的BeanFactoryPostProcessor实现,它只是辅助性地将后期会用到的信息注册到容器,对BeanDefinition没有做任何变动。我们知道,不管对象是什么类型,也不管这些对象所声明的依赖对象是什么类型,通常都是通过 XML(或者properties甚至其他媒介)文件格式来配置这些对象类型。但XML所记载的,都是String类 型,即容器从XML格式的文件中读取的都是字符串形式,最终应用程序却是由各种类型的对象所构成。 要想完成这种由字符串到具体对象的转换(不管这个转换工作最终由谁来做),都需要这种转换规则 相关的信息,而CustomEditorConfigurer就是帮助我们传达类似信息的。
+CustomEditorConfigurer是另一种类型的BeanFactoryPostProcessor实现,它只是辅助性地将后期会用到的信息注册到容器,对BeanDefinition没有做任何变动。
+我们知道,不管对象是什么类型,也不管这些对象所声明的依赖对象是什么类型,通常都是通过 XML(或者properties甚至其他媒介)文件格式来配置这些对象类型。但XML所记载的,都是String类 型,即容器从XML格式的文件中读取的都是字符串形式,最终应用程序却是由各种类型的对象所构成。 要想完成这种由字符串到具体对象的转换(不管这个转换工作最终由谁来做),都需要这种转换规则 相关的信息,而CustomEditorConfigurer就是帮助我们传达类似信息的。
 
 ##### 4.4.3 了解 bean 的一生（Bean实例化阶段）
 在已经可以借助于BeanFactoryPostProcessor来干预Magic实现的第一个阶段(容器启动阶段) 的活动之后,我们就可以开始探索下一个阶段,即bean实例化阶段的实现逻辑了。
     
-容器启动之后,并不会马上就实例化相应的bean定义。我们知道,容器现在仅仅拥有所有对象的 BeanDefinition来保存实例化阶段将要用的必要信息。只有当请求方通过BeanFactory的getBean() 方法来请求某个对象实例的时候,才有可能触发Bean实例化阶段的活动。BeanFactory的getBean方 法可以被客户端对象显式调用,也可以在容器内部隐式地被调用。隐式调用有如下两种情况。 12    对于BeanFactory来说,对象实例化默认采用延迟初始化。通常情况下,当对象A被请求而需 要第一次实例化的时候,如果它所依赖的对象B之前同样没有被实例化,那么容器会先实例化 对象A所依赖的对象。这时容器内部就会首先实例化对象B,以及对象 A依赖的其他还没有被 实例化的对象。这种情况是容器内部调用getBean(),对于本次请求的请求方是隐式的。
+容器启动之后,并不会马上就实例化相应的bean定义。我们知道,容器现在仅仅拥有所有对象的 BeanDefinition来保存实例化阶段将要用的必要信息。只有当请求方通过BeanFactory的getBean() 方法来请求某个对象实例的时候,才有可能触发Bean实例化阶段的活动。BeanFactory的getBean方 法可以被客户端对象显式调用,也可以在容器内部隐式地被调用。隐式调用有如下两种情况。 12
+    对于BeanFactory来说,对象实例化默认采用延迟初始化。通常情况下,当对象A被请求而需 要第一次实例化的时候,如果它所依赖的对象B之前同样没有被实例化,那么容器会先实例化 对象A所依赖的对象。这时容器内部就会首先实例化对象B,以及对象 A依赖的其他还没有被 实例化的对象。这种情况是容器内部调用getBean(),对于本次请求的请求方是隐式的。
 
 ApplicationContext启动之后会实例化所有的bean定义,这个特性在本书中已经多次提到。 但ApplicationContext在实现的过程中依然遵循Spring容器实现流程的两个阶段,只不过它 会在启动阶段的活动完成之后,紧接着调用注册到该容器的所有bean定义的实例化方法 getBean()。这就是为什么当你得到ApplicationContext类型的容器引用时,容器内所有对 象已经被全部实例化完成。不信你查一下类org.springframework.context.support. AbstractApplicationContext的refresh()方法。
 
@@ -129,53 +151,84 @@ Spring容器将对其所管理的对象全部给予统一的生命周期管理,�
 * 1. Bean的实例化与BeanWrapper
 容器在内部实现的时候,采用“策略模式(Strategy Pattern)”来决定采用何种方式初始化bean实例。 通常,可以通过反射或者CGLIB动态字节码生成来初始化相应的bean实例或者动态生成其子类。
 
-BeanWrapper接口通常在Spring框架内部使用,它有一个实现类org.springframework.beans.BeanWrapperImpl。其作用是对某个bean进行“包裹”,然后对这个“包裹”的bean进行操作,比如设置或者获取bean的相应属性值。而在第一步结束后返回BeanWrapper实例而不是原先的对象实例, 就是为了第二步“设置对象属性”。
+BeanWrapper接口通常在Spring框架内部使用,它有一个实现类org.springframework.beans.
+BeanWrapperImpl。其作用是对某个bean进行“包裹”,然后对这个“包裹”的bean进行操作,比如设置或者获取bean的相应属性值。而在第一步结束后返回BeanWrapper实例而不是原先的对象实例, 就是为了第二步“设置对象属性”。
 
 * 2. 各色的Aware接口
-这些Aware接口为如下几个。 org.springframework.beans.factory.BeanNameAware。如果Spring容器检测到当前对象实 例实现了该接口,会将该对象实例的bean定义对应的beanName设置到当前对象实例。 org.springframework.beans.factory.BeanClassLoaderAware。如果容器检测到当前对 象实例实现了该接口,会将对应加载当前bean的Classloader注入当前对象实例。默认会使用 加载org.springframework.util.ClassUtils类的Classloader。 org.springframework.beans.factory.BeanFactoryAware。在介绍方法注入的时候,我们 提到过使用该接口以便每次获取prototype类型bean的不同实例。如果对象声明实现了 BeanFactoryAware接口,BeanFactory容器会将自身设置到当前对象实例。这样,当前对象 实例就拥有了一个BeanFactory容器的引用,并且可以对这个容器内允许访问的对象按照需要 进行访问。
+这些Aware接口为如下几个。
+ org.springframework.beans.factory.BeanNameAware。如果Spring容器检测到当前对象实 例实现了该接口,会将该对象实例的bean定义对应的beanName设置到当前对象实例。
+ org.springframework.beans.factory.BeanClassLoaderAware。如果容器检测到当前对 象实例实现了该接口,会将对应加载当前bean的Classloader注入当前对象实例。默认会使用 加载org.springframework.util.ClassUtils类的Classloader。
+ org.springframework.beans.factory.BeanFactoryAware。在介绍方法注入的时候,我们 提到过使用该接口以便每次获取prototype类型bean的不同实例。如果对象声明实现了 BeanFactoryAware接口,BeanFactory容器会将自身设置到当前对象实例。这样,当前对象 实例就拥有了一个BeanFactory容器的引用,并且可以对这个容器内允许访问的对象按照需要 进行访问。
 
 * 3. BeanPostProcessor
-BeanPostProcessor的概念容易与BeanFactoryPostProcessor的概念混淆。但只要记住BeanPostProcessor是存在于对象实例化阶段,而BeanFactoryPostProcessor则是存在于容器启动阶段, 这两个概念就比较容易区分了。    与BeanFactoryPostProcessor通常会处理容器内所有符合条件的BeanDefinition类似,Bean- PostProcessor会处理容器内所有符合条件的实例化后的对象实例。
+BeanPostProcessor的概念容易与BeanFactoryPostProcessor的概念混淆。但只要记住BeanPostProcessor是存在于对象实例化阶段,而BeanFactoryPostProcessor则是存在于容器启动阶段, 这两个概念就比较容易区分了。
+    与BeanFactoryPostProcessor通常会处理容器内所有符合条件的BeanDefinition类似,Bean- PostProcessor会处理容器内所有符合条件的实例化后的对象实例。
     
 * 4. InitializingBean和init-method
-org.springframework.beans.factory.InitializingBean是容器内部广泛使用的一个对象生命周期标识接口,其定义如下:public interface InitializingBean {void afterPropertiesSet() throws Exception;}该接口定义很简单,其作用在于,在对象实例化过程调用过“BeanPostProcessor的前置处理” 之后,会接着检测当前对象是否实现了InitializingBean接口,如果是,则会调用其afterProper- tiesSet()方法进一步调整对象实例的状态。比如,在有些情况下,某个业务对象实例化完成后,还 不能处于可以使用状态。这个时候就可以让该业务对象实现该接口,并在方法afterPropertiesSet() 中完成对该业务对象的后续处理。虽然该接口在Spring容器内部广泛使用,但如果真的让我们的业务对象实现这个接口,则显得 Spring容器比较具有侵入性。所以,Spring还提供了另一种方式来指定自定义的对象初始化操作,那就 是在XML配置的时候,使用<bean>的init-method属性。通过init-method,系统中业务对象的自定义初始化操作可以以任何方式命名,而不再受制于 InitializingBean的afterPropertiesSet()。如果系统开发过程中规定:所有业务对象的自定义初 始化操作都必须以init()命名,为了省去挨个<bean>的设置init-method这样的烦琐,我们还可以通 过最顶层的<beans>的default-init-method统一指定这一init()方法名。一般,我们是在集成第三方库,或者其他特殊的情况下,才会需要使用该特性。比如,ObjectLab 提供了一个外汇系统交易日计算的开源实现——ObjectLabKit,系统在使用它提供的DateCalculator 时,封装类会通过一个自定义的初始化方法来为这些DateCalculator提供计算交易日所需要排除的休息日信息。
+org.springframework.beans.factory.InitializingBean是容器内部广泛使用的一个对象生
+命周期标识接口,其定义如下:
+public interface InitializingBean {
+void afterPropertiesSet() throws Exception;
+}
+该接口定义很简单,其作用在于,在对象实例化过程调用过“BeanPostProcessor的前置处理” 之后,会接着检测当前对象是否实现了InitializingBean接口,如果是,则会调用其afterProper- tiesSet()方法进一步调整对象实例的状态。比如,在有些情况下,某个业务对象实例化完成后,还 不能处于可以使用状态。这个时候就可以让该业务对象实现该接口,并在方法afterPropertiesSet() 中完成对该业务对象的后续处理。
+虽然该接口在Spring容器内部广泛使用,但如果真的让我们的业务对象实现这个接口,则显得 Spring容器比较具有侵入性。所以,Spring还提供了另一种方式来指定自定义的对象初始化操作,那就 是在XML配置的时候,使用<bean>的init-method属性。
+通过init-method,系统中业务对象的自定义初始化操作可以以任何方式命名,而不再受制于 InitializingBean的afterPropertiesSet()。如果系统开发过程中规定:所有业务对象的自定义初 始化操作都必须以init()命名,为了省去挨个<bean>的设置init-method这样的烦琐,我们还可以通 过最顶层的<beans>的default-init-method统一指定这一init()方法名。
+一般,我们是在集成第三方库,或者其他特殊的情况下,才会需要使用该特性。比如,ObjectLab 提供了一个外汇系统交易日计算的开源实现——ObjectLabKit,系统在使用它提供的DateCalculator 时,封装类会通过一个自定义的初始化方法来为这些DateCalculator提供计算交易日所需要排除的休息日信息。
 
 * 5. DisposableBean与destroy-method
-当所有的一切,该设置的设置,该注入的注入,该调用的调用完成之后,容器将检查singleton类 型的bean实例,看其是否实现了org.springframework.beans.factory.DisposableBean接口。或 者其对应的bean定义是否通过<bean>的destroy-method属性指定了自定义的对象销毁方法。如果是, 就会为该实例注册一个用于对象销毁的回调(Callback),以便在这些singleton类型的对象实例销毁之 前,执行销毁逻辑。    与InitializingBean和init-method用于对象的自定义初始化相对应,DisposableBean和 destroy-method为对象提供了执行自定义销毁逻辑的机会。    最常见到的该功能的使用场景就是在Spring容器中注册数据库连接池,在系统退出后,连接池应 该关闭,以释放相应资源。代码清单4-56演示了通常情况下使用destroy-method处理资源释放的数据 源注册配置。    不过,这些自定义的对象销毁逻辑,在对象实例初始化完成并注册了相关的回调方法之后,并不 会马上执行。回调方法注册后,返回的对象实例即处于使用状态,只有该对象实例不再被使用的时候, 才会执行相关的自定义销毁逻辑,此时通常也就是Spring容器关闭的时候。但Spring容器在关闭之前, 不会聪明到自动调用这些回调方法。所以,需要我们告知容器,在哪个时间点来执行对象的自定义销 毁方法。    对于BeanFactory容器来说。我们需要在独立应用程序的主程序退出之前,或者其他被认为是合 适的情况下(依照应用场景而定),如代码清单4-57所示,调用ConfigurableBeanFactory提供的 destroySingletons()方法销毁容器中管理的所有singleton类型的对象实例。
+当所有的一切,该设置的设置,该注入的注入,该调用的调用完成之后,容器将检查singleton类 型的bean实例,看其是否实现了org.springframework.beans.factory.DisposableBean接口。或 者其对应的bean定义是否通过<bean>的destroy-method属性指定了自定义的对象销毁方法。如果是, 就会为该实例注册一个用于对象销毁的回调(Callback),以便在这些singleton类型的对象实例销毁之 前,执行销毁逻辑。
+    与InitializingBean和init-method用于对象的自定义初始化相对应,DisposableBean和 destroy-method为对象提供了执行自定义销毁逻辑的机会。
+    最常见到的该功能的使用场景就是在Spring容器中注册数据库连接池,在系统退出后,连接池应 该关闭,以释放相应资源。代码清单4-56演示了通常情况下使用destroy-method处理资源释放的数据 源注册配置。
+    不过,这些自定义的对象销毁逻辑,在对象实例初始化完成并注册了相关的回调方法之后,并不 会马上执行。回调方法注册后,返回的对象实例即处于使用状态,只有该对象实例不再被使用的时候, 才会执行相关的自定义销毁逻辑,此时通常也就是Spring容器关闭的时候。但Spring容器在关闭之前, 不会聪明到自动调用这些回调方法。所以,需要我们告知容器,在哪个时间点来执行对象的自定义销 毁方法。
+    对于BeanFactory容器来说。我们需要在独立应用程序的主程序退出之前,或者其他被认为是合 适的情况下(依照应用场景而定),如代码清单4-57所示,调用ConfigurableBeanFactory提供的 destroySingletons()方法销毁容器中管理的所有singleton类型的对象实例。
 
-#### 4.5 小结  Spring的IoC容器主要有两种,即BeanFactory和ApplicationContext。本章伊始,首先对这两 种容器做了总体上的介绍,然后转入本章的重点,也就是Spring的BeanFactory基础容器。
-    我们从对比使用BeanFactory开发前后的差别开始,阐述了BeanFactory作为一个具体的IoCService Provider,它是如何支持各种对象注册以及依赖关系绑定的。XML自始至终都是Spring的IoC容 14 器支持最完善的Configuration Metadata提供方式。所以,我们接着从XML入手,深入挖掘了 BeanFactory(以及ApplicationContext)的各种潜力。    对于充满好奇心的我们,不会只停留在会使用BeanFactory进行开发这一层面。所以,最后我们 又一起探索了BeanFactory(当然,也是ApplicationContext)实现背后的各种奥秘。BeanFactory 是Spring提供的基础IoC容器,但并不是Spring提供的唯一IoC容器。ApplicationContext构建于 BeanFactory之上,提供了许多BeanFactory之外的特性。下一章,我们将一起走入Application- Context的世界
+#### 4.5 小结
+  Spring的IoC容器主要有两种,即BeanFactory和ApplicationContext。本章伊始,首先对这两 种容器做了总体上的介绍,然后转入本章的重点,也就是Spring的BeanFactory基础容器。
+    我们从对比使用BeanFactory开发前后的差别开始,阐述了BeanFactory作为一个具体的IoC
+Service Provider,它是如何支持各种对象注册以及依赖关系绑定的。XML自始至终都是Spring的IoC容 14 器支持最完善的Configuration Metadata提供方式。所以,我们接着从XML入手,深入挖掘了 BeanFactory(以及ApplicationContext)的各种潜力。
+    对于充满好奇心的我们,不会只停留在会使用BeanFactory进行开发这一层面。所以,最后我们 又一起探索了BeanFactory(当然,也是ApplicationContext)实现背后的各种奥秘。BeanFactory 是Spring提供的基础IoC容器,但并不是Spring提供的唯一IoC容器。ApplicationContext构建于 BeanFactory之上,提供了许多BeanFactory之外的特性。下一章,我们将一起走入Application- Context的世界
     
 ### 第5章、Spring IoC容器之ApplicationContext
-Spring为基本的BeanFactory类型容器提供了XmlBeanFactory实现。相应地,它也为ApplicationContext类型容器提供了以下几个常用的实现。 org.springframework.context.support.FileSystemXmlApplicationContext。在默认 情况下,从文件系统加载bean定义以及相关资源的ApplicationContext实现。 org.springframework.context.support.ClassPathXmlApplicationContext。在默认情 况下,从Classpath加载bean定义以及相关资源的ApplicationContext实现。 org.springframework.web.context.support.XmlWebApplicationContext。Spring提供 的用于W eb应用程序的ApplicationContext实现,我们将在第六部分更多地接触到它。
+Spring为基本的BeanFactory类型容器提供了XmlBeanFactory实现。相应地,它也为ApplicationContext类型容器提供了以下几个常用的实现。
+ org.springframework.context.support.FileSystemXmlApplicationContext。在默认 情况下,从文件系统加载bean定义以及相关资源的ApplicationContext实现。
+ org.springframework.context.support.ClassPathXmlApplicationContext。在默认情 况下,从Classpath加载bean定义以及相关资源的ApplicationContext实现。
+ org.springframework.web.context.support.XmlWebApplicationContext。Spring提供 的用于W eb应用程序的ApplicationContext实现,我们将在第六部分更多地接触到它。
     第4章中说明了ApplicationContext所支持的大部分功能。下面主要围绕ApplicationContext 较之BeanFactory特有的一些特性展开讨论,即国际化(I18n)信息支持、统一资源加载策略以及容器内事件发布等。
 #### 5.1、统一资源加载策略
 Spring提出了一套基于org.springframework.core.io.Resource和 org.springframework.core.io.ResourceLoader接口的资源抽象和加载策略。
-    Spring框架内部使用org.springframework.core.io.Resource接口作为所有资源的抽象和访 问接口,我们之前在构造BeanFactory的时候已经接触过它,如下代码:BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("..."));     其中ClassPathResource就是Resource的一个特定类型的实现,代表的是位于Classpath中的资源。 Resource接口可以根据资源的不同类型,或者资源所处的不同场合,给出相应的具体实现。
-    ResourceLoader,“更广义的URL”    资源是有了,但如何去查找和定位这些资源,则应该是ResourceLoader的职责所在了。org.spr- ingframework.core.io.ResourceLoader接口是资源查找定位策略的统一抽象,具体的资源查找定 位策略则由相应的ResourceLoader实现类给出。我想,把ResourceLoader称作统一资源定位器或许 才更恰当一些吧!
+    Spring框架内部使用org.springframework.core.io.Resource接口作为所有资源的抽象和访 问接口,我们之前在构造BeanFactory的时候已经接触过它,如下代码:
+BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("...")); 
+    其中ClassPathResource就是Resource的一个特定类型的实现,代表的是位于Classpath中的资源。 Resource接口可以根据资源的不同类型,或者资源所处的不同场合,给出相应的具体实现。
+    ResourceLoader,“更广义的URL”
+    资源是有了,但如何去查找和定位这些资源,则应该是ResourceLoader的职责所在了。org.spr- ingframework.core.io.ResourceLoader接口是资源查找定位策略的统一抽象,具体的资源查找定 位策略则由相应的ResourceLoader实现类给出。我想,把ResourceLoader称作统一资源定位器或许 才更恰当一些吧!
     我们应该对Spring的统一资源加载策略有了一个整体上的认识,就如图5-1所示。
     ![](media/14835192922448/14844825191156.jpg)￼
 
 #### 5.2、国际化信息支持(I18n MessageSource)
 1、Java SE 提供的国际化支持
 对于Java中的国际化信息处理,主要涉及两个类,即java.util.Locale和java.util.ResourceBundle。
-有了ResourceBundle对应的资源文件之后,我们就可以通过ResourceBundle的getBundle (String baseName, Locale locale)方法取得不同Locale对应的ResourceBundle,然后根据资源 的键取得相应Locale的资源条目内容。通过结合ResourceBundle和Locale,我们就能够实现应用程序的国际化信息支持。
+有了ResourceBundle对应的资源文件之后,我们就可以通过ResourceBundle的getBundle (String baseName, Locale locale)方法取得不同Locale对应的ResourceBundle,然后根据资源 的键取得相应Locale的资源条目内容。
+通过结合ResourceBundle和Locale,我们就能够实现应用程序的国际化信息支持。
 2、MessageSource与ApplicationContext
 Spring在Java SE的国际化支持的基础上,进一步抽象了国际化信息的访问接口,也就是 org.springframework.context.MessageSource。
 #### 5.3、容器内部事件发布
-1、自定义事件发布Java SE提供了实现自定义事件发布(Custom Event publication)功能的基础类,即java.util.Eve- ntObject类和java.util.EventListener接口。所有的自定义事件类型可以通过扩展EventObject 来实现,而事件的监听器则扩展自EventListener。
+1、自定义事件发布
+Java SE提供了实现自定义事件发布(Custom Event publication)功能的基础类,即java.util.Eve- ntObject类和java.util.EventListener接口。所有的自定义事件类型可以通过扩展EventObject 来实现,而事件的监听器则扩展自EventListener。
 2、Spring 的容器内事件发布类结构分析
 Spring 的 ApplicationContext 容 器 内 部 允 许 以 org.springframework.context.Appli- cationEvent 的 形 式 发 布 事 件 , 容 器 内 注 册 的 org.springframework.context.Application- Listener类型的bean定义会被ApplicationContext容器自动识别,它们负责监听容器内发布的所有 ApplicationEvent类型的事件。也就是说,一旦容器内发布ApplicationEvent及其子类型的事件, 注册到容器的ApplicationListener就会对这些事件进行处理。
 #### 5.4、多配置模块加载的简化
 实际上,这也不算ApplicationContext比较突出的特色功能,只是相对于BeanFactory来说, 在这一点上做得更好罢了。
     我们知道,在使用Spring的IoC轻量级容器进行实际开发的过程中,为了避免出现整个团队因某个 资源独占而无法并行、高效地完成工作等问题,通常会将整个系统的配置信息按照某种关注点进行分 7 割,使得关注点逻辑良好地划分到不同的配置文件中,如按照功能模块或者按照系统划分的层次等。 这样,在加载整个系统的bean定义时,就需要让容器同时读入划分到不同配置文件的信息。相对于 BeanFactory来说,ApplicationContext大大简化了这种情况下的多配置文件的加载工作。
-#### 5.5、小结ApplicationContext是Spring在BeanFactory基础容器之上,提供的另一个IoC容器实现。它拥有许多BeanFactory所没有的特性,包括统一的资源加载策略、国际化信息支持、容器内事件发布以及简化的多配置文件加载功能。本节对ApplicationContext的这些新增特性进行了详尽的阐述。希望读者在学习完本章内容之后,对每一种特性的来龙去脉都能了如指掌。
+#### 5.5、小结
+ApplicationContext是Spring在BeanFactory基础容器之上,提供的另一个IoC容器实现。它拥有许多BeanFactory所没有的特性,包括统一的资源加载策略、国际化信息支持、容器内事件发布以及简化的多配置文件加载功能。本节对ApplicationContext的这些新增特性进行了详尽的阐述。希望读者在学习完本章内容之后,对每一种特性的来龙去脉都能了如指掌。
 ### 第6章、Spring IoC容器之扩展
 #### 6.1、基于注解的依赖注入
 注解版的自动绑定(@Autowired）
 classpath-scanning功能的触发是由<context:component-scan>决定的
 #### 6.3 小结
-Spring最初并不支持基于注解的依赖注入方式。所以,在Spring 2.5中引入这一依赖注入方式的时 候,肯定要在维护整个框架设计与实现的一致性和引入这种依赖注入方式对整个框架的冲击之间做出 权衡。最终的结果我们已经看到了,Spring 2.5中引入的基于注解的依赖注入从整体上保持了框架内的 一致性,同时又提供了足够的基于注解的依赖注入表达能力。我想,最初的决定和最终的效果都是令 人满意的。虽然我们还会部分地依赖于容器的配置文件,但通过20%的工作却可以带来80%的效果, 这本身已经是最好的结果了。    不过,从实际开发角度看,如果非要使用完全基于注解的依赖注入的话,或许会遇到一些过不去 的坎儿。比如,对于第三方提供的类库,肯定没法给其中的相关类标注@Component之类的注解。这 时,我们可以结合使用基于配置文件的依赖注入方式。毕竟,基于XML的依赖注入方式是Spring提供 的最基本、也最为强大的表达方式了!    到目前为止,我们已经结束了Spring IoC容器的旅程。接下来的第三部分将带领读者探索Spring AOP框架的精彩世界。
+Spring最初并不支持基于注解的依赖注入方式。所以,在Spring 2.5中引入这一依赖注入方式的时 候,肯定要在维护整个框架设计与实现的一致性和引入这种依赖注入方式对整个框架的冲击之间做出 权衡。最终的结果我们已经看到了,Spring 2.5中引入的基于注解的依赖注入从整体上保持了框架内的 一致性,同时又提供了足够的基于注解的依赖注入表达能力。我想,最初的决定和最终的效果都是令 人满意的。虽然我们还会部分地依赖于容器的配置文件,但通过20%的工作却可以带来80%的效果, 这本身已经是最好的结果了。
+    不过,从实际开发角度看,如果非要使用完全基于注解的依赖注入的话,或许会遇到一些过不去 的坎儿。比如,对于第三方提供的类库,肯定没法给其中的相关类标注@Component之类的注解。这 时,我们可以结合使用基于配置文件的依赖注入方式。毕竟,基于XML的依赖注入方式是Spring提供 的最基本、也最为强大的表达方式了!
+    到目前为止,我们已经结束了Spring IoC容器的旅程。接下来的第三部分将带领读者探索Spring AOP框架的精彩世界。
     
 ## 三、Part3：Spring AOP 框架
 ### 第7章 一起来看AOP
